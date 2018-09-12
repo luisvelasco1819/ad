@@ -1,0 +1,24 @@
+20180911
+ sudo update-pc
+  instalados monodevelop y prerequisitos de android-studio
+ bitnami.com
+  descargar lamp
+ instalar: marcar bit de ejecución, doble click y esperar un poquito
+  password: sistemas
+
+ ejecutamos lamp
+  manager-linux-x64.run (en lampstack-...)
+   Open phpMyAdmin
+	Usuario:  root
+ 	Password: sistemas
+ crear base de datos dbprueba (con las opciones por defecto)
+ en dbprueba crear tabla categoria
+  
+20181011
+ crear tabla categoria mediante ddl
+ configurar git:
+git config --global user.name luisvelasco1819
+git config --global user.email luis.velasco@institutoserpis.org
+git config --global push.default simple
+
+
