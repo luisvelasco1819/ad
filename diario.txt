@@ -14,11 +14,25 @@
  crear base de datos dbprueba (con las opciones por defecto)
  en dbprueba crear tabla categoria
   
-20181011
+20180912
  crear tabla categoria mediante ddl
  configurar git:
 git config --global user.name luisvelasco1819
 git config --global user.email luis.velasco@institutoserpis.org
 git config --global push.default simple
 
+20180914
+ Propuesta de instalar ubuntu 16.04 en VirtualBox, e instalar monodevelop en la máquina virtual.
+ Descarga del "conector" de mysql para .net desde la página oficial
+
+ Al intentar conectar lanza una exception:
+  Host '127.0.0.1' is not allowed to connect to this MySQL server
+ Para arreglar el problema comentamos la línea del skip-name-resolve=1:
+  [mysqld]
+  ...
+  # skip-name-resolve=1
+ Ahora obtenemos otra exception:
+  The host localhost does not support SSL connections.
+ Para arreglar esto incluimos ssl-mode=none en la 'connection string':
+  "server=localhost;database=dbprueba;user=root;password=sistemas;ssl-mode=none"
 
