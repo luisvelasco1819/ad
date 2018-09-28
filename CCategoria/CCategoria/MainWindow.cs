@@ -71,17 +71,8 @@ public partial class MainWindow : Gtk.Window
 	private void update(Categoria categoria) {
 		IDbCommand dbCommand = App.Instance.DbConnection.CreateCommand();
 		dbCommand.CommandText = "update categoria set nombre=@nombre where id=@id";
-
-		IDbDataParameter dbDataParameterNombre = dbCommand.CreateParameter();
-		dbDataParameterNombre.ParameterName = "nombre";
-		dbDataParameterNombre.Value = categoria.Nombre;
-		dbCommand.Parameters.Add(dbDataParameterNombre);
-
-		IDbDataParameter dbDataParameterId = dbCommand.CreateParameter();
-        dbDataParameterId.ParameterName = "id";
-		dbDataParameterId.Value = categoria.Id;
-        dbCommand.Parameters.Add(dbDataParameterId);
-
+        DbCommandHelper.AddParameter(dbCommand, "nombre", categoria.Nombre);
+		DbCommandHelper.AddParameter(dbCommand, "id", categoria.Id);
 		dbCommand.ExecuteNonQuery();
     }
     
