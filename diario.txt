@@ -1,6 +1,15 @@
 20180911
  sudo update-pc
   instalados monodevelop y prerequisitos de android-studio
+
+  Nota aclarando como instalar monodevelop 7.5 en ubuntu 16.04:
+   apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+   apt update
+   apt install -y apt-transport-https
+   echo "deb https://download.mono-project.com/repo/ubuntu vs-xenial main" | tee /etc/apt/sources.list.d/mono-official-vs.list
+   apt update
+   apt install -y monodevelop
+
  bitnami.com
   descargar lamp
  instalar: marcar bit de ejecución, doble click y esperar un poquito
