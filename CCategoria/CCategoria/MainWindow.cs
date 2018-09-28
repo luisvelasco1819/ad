@@ -26,6 +26,8 @@ public partial class MainWindow : Gtk.Window
 		update(new Categoria(3, "categoría 3 " + DateTime.Now));
 		//delete();
 
+		//TreeViewHelper.Fill(treeView, CategoriaDao.List);
+
 		CellRendererText cellRendererText = new CellRendererText();
 
 		string[] properties = new string[] { "Id", "Nombre" };
@@ -45,13 +47,15 @@ public partial class MainWindow : Gtk.Window
 		ListStore listStore = new ListStore(typeof(object));
 		treeView.Model = listStore;
 
-		IDbCommand dbCommand = App.Instance.DbConnection.CreateCommand();
-		dbCommand.CommandText = "select id, nombre from categoria order by id";
-		IDataReader dataReader = dbCommand.ExecuteReader();
-		while (dataReader.Read())
-			listStore.AppendValues(new Categoria((ulong)dataReader["id"], (string)dataReader["nombre"]));
-		dataReader.Close();
+		//IDbCommand dbCommand = App.Instance.DbConnection.CreateCommand();
+		//dbCommand.CommandText = "select id, nombre from categoria order by id";
+		//IDataReader dataReader = dbCommand.ExecuteReader();
+		//while (dataReader.Read())
+		//	listStore.AppendValues(new Categoria((ulong)dataReader["id"], (string)dataReader["nombre"]));
+		//dataReader.Close();
 
+		foreach (Categoria categoria in CategoriaDao.Categorias)
+			listStore.AppendValues(categoria);
 
     }
 
