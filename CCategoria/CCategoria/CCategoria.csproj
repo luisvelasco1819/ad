@@ -57,6 +57,9 @@
       <HintPath>..\..\mysql\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="CSerpis">
+      <HintPath>..\..\CSerpis\CSerpis\bin\Debug\CSerpis.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="gtk-gui\gui.stetic">
@@ -72,8 +75,6 @@
     <Compile Include="Categoria.cs" />
     <Compile Include="CategoriaWindow.cs" />
     <Compile Include="gtk-gui\CCategoria.CategoriaWindow.cs" />
-    <Compile Include="App.cs" />
-    <Compile Include="DbCommandHelper.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
