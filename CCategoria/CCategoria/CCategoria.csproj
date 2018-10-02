@@ -60,6 +60,9 @@
     <Reference Include="CSerpis">
       <HintPath>..\..\CSerpis\CSerpis\bin\Debug\CSerpis.dll</HintPath>
     </Reference>
+    <Reference Include="CSerpisGtk">
+      <HintPath>..\..\CSerpisGtk\CSerpisGtk\bin\Debug\CSerpisGtk.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="gtk-gui\gui.stetic">

@@ -18,44 +18,38 @@ public partial class MainWindow : Gtk.Window
 
 		App.Instance.DbConnection.Open();
 
-		new CategoriaWindow();
+		//new CategoriaWindow();
 
+        TreeViewHelper.Fill(treeView, new string[] {"Id", "Nombre"}, CategoriaDao.Categorias);
 
-		//insert();
-		//update();
-		update(new Categoria(3, "categoría 3 " + DateTime.Now));
-		//delete();
+		//CellRendererText cellRendererText = new CellRendererText();
 
-		//TreeViewHelper.Fill(treeView, CategoriaDao.List);
+		//string[] properties = new string[] { "Id", "Nombre" };
 
-		CellRendererText cellRendererText = new CellRendererText();
+		//foreach (string property in properties){
+		//	treeView.AppendColumn(
+		//		property,
+		//		cellRendererText,
+		//		delegate (TreeViewColumn tree_column, CellRenderer cell, TreeModel tree_model, TreeIter iter) {
+		//			object model = tree_model.GetValue(iter, 0);
+		//		    object value = model.GetType().GetProperty(property).GetValue(model);
+		//			cellRendererText.Text = value + "";
+		//		}
+		//	);
+	 //   }
 
-		string[] properties = new string[] { "Id", "Nombre" };
+		//ListStore listStore = new ListStore(typeof(object));
+		//treeView.Model = listStore;
 
-		foreach (string property in properties){
-			treeView.AppendColumn(
-				property,
-				cellRendererText,
-				delegate (TreeViewColumn tree_column, CellRenderer cell, TreeModel tree_model, TreeIter iter) {
-					object model = tree_model.GetValue(iter, 0);
-				    object value = model.GetType().GetProperty(property).GetValue(model);
-					cellRendererText.Text = value + "";
-				}
-			);
-	    }
+		////IDbCommand dbCommand = App.Instance.DbConnection.CreateCommand();
+		////dbCommand.CommandText = "select id, nombre from categoria order by id";
+		////IDataReader dataReader = dbCommand.ExecuteReader();
+		////while (dataReader.Read())
+		////	listStore.AppendValues(new Categoria((ulong)dataReader["id"], (string)dataReader["nombre"]));
+		////dataReader.Close();
 
-		ListStore listStore = new ListStore(typeof(object));
-		treeView.Model = listStore;
-
-		//IDbCommand dbCommand = App.Instance.DbConnection.CreateCommand();
-		//dbCommand.CommandText = "select id, nombre from categoria order by id";
-		//IDataReader dataReader = dbCommand.ExecuteReader();
-		//while (dataReader.Read())
-		//	listStore.AppendValues(new Categoria((ulong)dataReader["id"], (string)dataReader["nombre"]));
-		//dataReader.Close();
-
-		foreach (Categoria categoria in CategoriaDao.Categorias)
-			listStore.AppendValues(categoria);
+		//foreach (Categoria categoria in CategoriaDao.Categorias)
+			//listStore.AppendValues(categoria);
 
     }
 
