@@ -21,14 +21,14 @@ public partial class MainWindow : Gtk.Window
         TreeViewHelper.Fill(treeView, new string[] {"Id", "Nombre"}, CategoriaDao.Categorias);
 
 		newAction.Activated += delegate {
-			new CategoriaWindow();		
+			new CategoriaWindow(new Categoria());		
 		};
 
 		editAction.Activated += delegate {
-			Console.WriteLine("Id=" + GetId(treeView) );
-
-
-
+			object id = GetId(treeView);
+			Console.WriteLine("Id=" +  id);
+			Categoria categoria = CategoriaDao.Load(id);
+			new CategoriaWindow(categoria);
 		};
 
 		treeView.Selection.Changed += delegate {
