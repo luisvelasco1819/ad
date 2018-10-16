@@ -31,6 +31,10 @@ public partial class MainWindow : Gtk.Window
 			new CategoriaWindow(categoria);
 		};
 
+		refreshAction.Activated += delegate {
+			TreeViewHelper.Fill(treeView, new string[] { "Id", "Nombre" }, CategoriaDao.Categorias);
+		};
+
 		treeView.Selection.Changed += delegate {
 			refreshUI();
 		};

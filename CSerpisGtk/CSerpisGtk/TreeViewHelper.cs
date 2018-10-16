@@ -7,10 +7,17 @@ namespace Serpis.Ad
     public class TreeViewHelper
     {
 		public static void Fill(TreeView treeView, string[] propertyNames, IEnumerable enumerable) {
-			CellRendererText cellRendererText = new CellRendererText();
+			if (treeView.Model == null)
+				init(treeView, propertyNames);
+			ListStore listStore = (ListStore)treeView.Model;
+			listStore.Clear();
+			foreach (object obj in enumerable)
+				listStore.AppendValues(obj);
+		}
 
-			foreach (string property in propertyNames)
-            {
+		private static void init(TreeView treeView, string[] propertyNames) {
+			CellRendererText cellRendererText = new CellRendererText();
+            foreach (string property in propertyNames) {
                 treeView.AppendColumn(
                     property,
                     cellRendererText,
@@ -21,12 +28,7 @@ namespace Serpis.Ad
                     }
                 );
             }
-
-            ListStore listStore = new ListStore(typeof(object));
-            treeView.Model = listStore;
-
-			foreach (object obj in enumerable)
-				listStore.AppendValues(obj);
+			treeView.Model = new ListStore(typeof(object));
 		}
     }
 }
