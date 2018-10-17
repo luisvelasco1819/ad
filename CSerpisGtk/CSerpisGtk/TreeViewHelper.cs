@@ -30,5 +30,18 @@ namespace Serpis.Ad
             }
 			treeView.Model = new ListStore(typeof(object));
 		}
+
+		public static object GetId(TreeView treeView)
+        {
+            return Get(treeView, "Id");
+        }
+
+        public static object Get(TreeView treeView, string propertyName)
+        {
+            if (!treeView.Selection.GetSelected(out TreeIter treeIter))
+                return null;
+            object model = treeView.Model.GetValue(treeIter, 0);
+            return model.GetType().GetProperty(propertyName).GetValue(model);
+        }
     }
 }
