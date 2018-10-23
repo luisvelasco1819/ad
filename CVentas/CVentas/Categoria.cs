@@ -1,5 +1,5 @@
 ﻿using System;
-namespace CCategoria
+namespace Serpis.Ad.Ventas
 {
     public class Categoria
     {
