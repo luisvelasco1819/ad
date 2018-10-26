@@ -78,6 +78,9 @@
     <Reference Include="CVentas">
       <HintPath>..\..\CVentas\CVentas\bin\Debug\CVentas.dll</HintPath>
     </Reference>
+    <Reference Include="CVentas">
+      <HintPath>..\..\CVentas\CVentas\bin\Debug\CVentas.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="gtk-gui\gui.stetic">
