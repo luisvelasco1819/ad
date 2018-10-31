@@ -38,6 +38,8 @@ namespace Serpis.Ad
 					object model = Activator.CreateInstance<TEntity>();
 					foreach (string propertyName in entityPropertyNames) {
 						object value = dataReader[propertyName.ToLower()];
+						if (value == DBNull.Value)
+							value = null;
 						entityType.GetProperty(propertyName).SetValue(model, value);
 					}
 					list.Add(model);
