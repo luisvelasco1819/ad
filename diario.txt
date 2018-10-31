@@ -45,3 +45,6 @@ git config --global push.default simple
  Para arreglar esto incluimos ssl-mode=none en la 'connection string':
   "server=localhost;database=dbprueba;user=root;password=sistemas;ssl-mode=none"
 
+20181030
+ crear tabla articulo mediante ddl (está en el archivo dbprueba.sql)
+
