@@ -71,8 +71,13 @@ namespace Serpis.Ad
 			//TODO implementar
         }
 
+		protected static string deleteSql = "delete from {0} where {1} = @id";
 		public void Delete(object id) {
-			//TODO implementar
+			string tableName = entityType.Name.ToLower();
+			IDbCommand dbCommand = App.Instance.DbConnection.CreateCommand();
+			dbCommand.CommandText = string.Format(deleteSql, tableName, idPropertyName.ToLower());
+			DbCommandHelper.AddParameter(dbCommand, "id", id);
+            dbCommand.ExecuteNonQuery();
 		}
 
     }
