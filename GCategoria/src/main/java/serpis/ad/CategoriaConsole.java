@@ -31,6 +31,9 @@ public class CategoriaConsole {
 	}
 	
 	public static void showList(List<Categoria> categorias) {
+		for (Categoria categoria : categorias) {
+			System.out.printf("%4s %-20s %n", categoria.getId(), categoria.getNombre());
+		}
 		
 	}
 	
