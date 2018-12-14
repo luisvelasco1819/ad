@@ -1,6 +1,5 @@
 package serpis.ad;
 
-import java.math.BigInteger;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -61,7 +60,7 @@ public class CategoriaDao {
 	 */
 	private static final String selectWhereId = "select id, nombre from categoria where id=?"; 
 	public static Categoria load(long id) throws SQLException {
-		try (PreparedStatement preparedStatement = App.getInstance().getConnection().prepareStatement(deleteSql)) {
+		try (PreparedStatement preparedStatement = App.getInstance().getConnection().prepareStatement(selectWhereId)) {
 			preparedStatement.setObject(1, id);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			if (!resultSet.next())
