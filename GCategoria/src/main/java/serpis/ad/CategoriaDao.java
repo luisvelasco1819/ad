@@ -48,6 +48,7 @@ public class CategoriaDao {
 			categoria.setNombre((String)resultSet.getObject("nombre"));
 			categorias.add(categoria);
 		}
+		statement.close();
 		return categorias;
 	}
 }
