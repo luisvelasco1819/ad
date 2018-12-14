@@ -1,7 +1,10 @@
 package serpis.ad;
 
+import java.math.BigInteger;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,12 +36,16 @@ public class CategoriaDao {
 		return -1;
 	}
 
+	private static final String selectAll = "select id, nombre from categoria"; 
 	public static List<Categoria> getAll() throws SQLException {
 		List<Categoria> categorias = new ArrayList<>();
-		for (int index = 0; index < 5; index++) {
+		Statement statement = App.getInstance().getConnection().createStatement();
+		ResultSet resultSet = statement.executeQuery(selectAll);
+		while (resultSet.next()) {
 			Categoria categoria = new Categoria();
-			categoria.setId(index);
-			categoria.setNombre("Categoría " + index);
+			//categoria.setId( ((BigInteger)resultSet.getObject("id")).longValue() );
+			categoria.setId( resultSet.getLong("id") );
+			categoria.setNombre((String)resultSet.getObject("nombre"));
 			categorias.add(categoria);
 		}
 		return categorias;
