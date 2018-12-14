@@ -32,6 +32,7 @@ public class CategoriaMain {
 			daoAction.execute();
 		} catch (SQLException ex) {
 			System.out.println(errorMessage);
+			System.out.println(ex);
 		}
 	}
 	
