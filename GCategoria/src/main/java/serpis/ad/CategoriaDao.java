@@ -73,7 +73,7 @@ public class CategoriaDao {
 	}
 	
 	
-	private static String deleteSql = "delete categoria where id=?";
+	private static String deleteSql = "delete from categoria where id=?";
 	public static int delete(long id) throws SQLException {
 		try (PreparedStatement preparedStatement = App.getInstance().getConnection().prepareStatement(deleteSql)) {
 			preparedStatement.setObject(1, id);
