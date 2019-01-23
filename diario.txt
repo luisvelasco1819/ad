@@ -48,3 +48,12 @@ git config --global push.default simple
 20181030
  crear tabla articulo mediante ddl (está en el archivo dbprueba.sql)
 
+20190118
+ crear tablas cliente, pedido, pedidolinea (están en dbprueba.sql)
+ Propuesto estudio de "User Guide" Hibernate 5.4.1:
+    2.7.1 @ManyToOne
+    2.7.2 @OneToMany (en especial bidireccional)
+    2.8 Collections (en especial a partir de Collections of entities)
+    5.3 - 5.6 (persist remove find getReference...)
+    15.5 (createQuery("select ...")...)
+
