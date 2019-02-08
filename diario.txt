@@ -57,3 +57,10 @@ git config --global push.default simple
     5.3 - 5.6 (persist remove find getReference...)
     15.5 (createQuery("select ...")...)
 
+20190207
+ Transactions Isolation level
+
+20190208
+ Control de concurrencia: @Version
+  (where id=1 and version=1)
+
